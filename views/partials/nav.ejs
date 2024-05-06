@@ -1,0 +1,25 @@
+<nav>
+  <div class="site-title">
+    <a href="/">
+      <h1 class="logo">Ehsan Najaar</h1>
+    </a>
+    <p class="subtitle">web developer</p>
+  </div>
+  <input type="checkbox" id="checkbox" />
+  <i class="fa-solid fa-bars line-icon">
+    <label for="checkbox"></label>
+  </i>
+  <ul class="navigation">
+    <li><a href="/" class="link">Blogs</a></li>
+    <li><a href="/about" class="link">About</a></li>
+    <li><a href="/blogs/create" class="link">New Blog</a></li>
+  </ul>
+</nav>
+
+<!-- can't scroll down when the navBar is open -->
+<script>
+  const checkbox = document.getElementById("checkbox");
+  checkbox.addEventListener("click", () => {
+    document.querySelector("body").classList.toggle("hidden");
+  });
+</script>

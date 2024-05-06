@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head -->
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <!-- nav -->
+    <%- include('./partials/nav.ejs') %>
+    <div class="content">
+      <h2 class="title-page">All Blogs</h2>
+      <div class="blogs">
+        <% if (blogs.length > 0){ blogs.forEach(blog => { %>
+        <a href="/blogs/<%= blog._id %>" class="card">
+          <div class="card-details">
+            <h3 class="title-card"><%= blog.title %></h3>
+            <p class="snippet"><%= blog.snippet %></p>
+            <% const time = blog.createdAt.toString().split(" ") %>
+            <div class="time-card">
+              <data class="date"><%= time[1] %></data>
+              <data class="date"><%= time[2] + "," %></data>
+              <data class="date"><%= time[3] %></data>
+            </div>
+          </div>
+          <button class="card-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.8"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </button>
+        </a>
+        <% })} else{ %>
+        <p>There are no Blogs to Display...</p>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>
